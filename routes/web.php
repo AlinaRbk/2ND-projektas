@@ -17,15 +17,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('shools')->group(function() {
+Route::prefix('schools')->group(function() {
 
-    Route::get('', 'App\Http\Controllers\ShoolController@index')->name('shool.index');
-    Route::get('create', 'App\Http\Controllers\ShoolController@create')->name('shool.create');
-    Route::post('store', 'App\Http\Controllers\ShoolController@store')->name('shool.store');
-    Route::get('edit/{shool}', 'App\Http\Controllers\ShoolController@edit')->name('shool.edit');
-    Route::post('update/{shool}', 'App\Http\Controllers\ShoolController@update')->name('shool.update');
-    Route::post('destroy/{shool}', 'App\Http\Controllers\ShoolController@destroy')->name('shool.destroy');
-    Route::get('show/{shool}', 'App\Http\Controllers\ClientController@show')->name('shool.show');
+    Route::get('', 'App\Http\Controllers\SchoolController@index')->name('school.index');    
+    Route::get('create', 'App\Http\Controllers\SchoolController@create')->name('school.create');
+    Route::post('store', 'App\Http\Controllers\SchoolController@store')->name('school.store');
+    Route::get('edit/{school}', 'App\Http\Controllers\SchoolController@edit')->name('school.edit');
+    Route::post('update/{school}', 'App\Http\Controllers\SchoolController@update')->name('school.update');
+    Route::post('destroy/{school}', 'App\Http\Controllers\SchoolController@destroy')->name('school.destroy');
+    Route::get('show/{school}', 'App\Http\Controllers\SchoolController@show')->name('school.show');
 });
 Route::prefix('students')->group(function() {
 

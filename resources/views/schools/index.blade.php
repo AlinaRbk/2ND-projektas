@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Shool</title>
+    <title>school</title>
 </head>
 <body>
     <div class="container">
-    <h1>Shools Index</h1>
+    <h1>Schools Index</h1>
 
 
-@if (count($shools) == 0)
-    <p>There is no shools</p>
+@if (count($schools) == 0)
+    <p>There is no schools</p>
 @endif
 
-<a class="btn btn-primary" href="{{route('shool.create')}}">Create new shool</a>
+<a class="btn btn-primary" href="{{route('school.create')}}">Create new school</a>
 <table class="table table-striped">
 <tr>
     <th>Id</th>
@@ -28,18 +28,18 @@
 </tr>
 
 
-@foreach ($shools as $shool)
+@foreach ($schools as $school)
     <tr>
-        <td>{{$shool->id}}</td>
-        <td>{{$shool->name}}</td>
-        <td>{{$shoool->description}}</td>
-        <td>{{$shool->place}}</td>
-        <td>{{$shool->phone}}</td>
+        <td>{{$school->id}}</td>
+        <td>{{$school->name}}</td>
+        <td>{{$school->description}}</td>
+        <td>{{$school->place}}</td>
+        <td>{{$school->phone}}</td>
         <td>
-            <a class="btn btn-primary" href="{{route('shool.edit', [$shool])}}">Edit</a>
-            <a class="btn btn-secondary" href="{{route('shool.show', [$shool])}}">Show</a>
+            <a class="btn btn-primary" href="{{route('school.edit', [$school])}}">Edit</a>
+            <a class="btn btn-secondary" href="{{route('school.show', [$school])}}">Show</a>
 
-            <form method="post" action='{{route('shool.destroy', [$shool])}}''>
+            <form method="post" action='{{route('school.destroy', [$school])}}''>
                 @csrf
                 <button class="btn btn-danger" type="submit">Delete</button>
             </form>

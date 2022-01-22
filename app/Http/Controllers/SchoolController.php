@@ -16,8 +16,8 @@ class SchoolController extends Controller
      */
     public function index()
     {
-        $shools = Shool::all();
-        return view('shools.index', ['shools' => $shools]);
+        $schools = School::all();
+        return view('schools.index', ['schools' => $schools]);
     }
 
     /**
@@ -27,8 +27,8 @@ class SchoolController extends Controller
      */
     public function create()
     {
-        $select_values = Shool::all();
-        return view('shools.create', ['select_values' => $select_values]);
+        $select_values = School::all();
+        return view('schools.create', ['select_values' => $select_values]);
        }
 
     /**
@@ -39,16 +39,16 @@ class SchoolController extends Controller
      */
     public function store(Request $request)
     {
-        $shool = new Shool;
+        $school = new school;
 
-        $shool->name = $request->shool_name;
-        $shool->description = $request->shool_description;
-        $shool->place = $request->shool_place;
-        $shool->shool_id = $request->shool_id;
+        $school->name = $request->school_name;
+        $school->description = $request->school_description;
+        $school->place = $request->school_place;
+        $school->school_id = $request->school_id;
 
-        $shool->save();
+        $school->save();
 
-        return redirect()->route('shools.index');
+        return redirect()->route('school.index');
     }
 
     /**
@@ -59,7 +59,7 @@ class SchoolController extends Controller
      */
     public function show(School $school)
     {
-        return view('shools.show', ['shool'=> $shool]);
+        return view('schools.show', ['school'=> $school]);
 
     }
 
@@ -71,9 +71,10 @@ class SchoolController extends Controller
      */
     public function edit(School $school)
     {
-        return view('shools.edit',['shool' => $shool]);
+        $select_values = School::all();
+        return view('schools.edit', ['school' => $school, 'select_values' => $select_values]);    }
 
-    }
+    
 
     /**
      * Update the specified resource in storage.
@@ -84,13 +85,13 @@ class SchoolController extends Controller
      */
     public function update(Request $request, School $school)
     {
-        $shool->name = $request->shool_name;
-        $shool->description = $request->shool_description;
-        $shool->place = $request->shool_place;
-        $shool->shool_id = $request->shool_id;
+        $school->name = $request->school_name;
+        $school->description = $request->school_description;
+        $school->place = $request->school_place;
+        $school->school_id = $request->school_id;
         
-        $shool->save();
-        return redirect()->route('shool.index');
+        $school->save();
+        return redirect()->route('school.index');
     }
 
     /**
@@ -101,7 +102,7 @@ class SchoolController extends Controller
      */
     public function destroy(School $school)
     {
-        $shool->delete();
-        return redirect()->route('shool.index');
+        $school->delete();
+        return redirect()->route('school.index');
     }
 }

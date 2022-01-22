@@ -4,8 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-use App\Models\School;
-use App\Models\Student;
+use App\Models\AttendanceGroup;
+
 
 class AttendanceGroupSeeder extends Seeder
 {
