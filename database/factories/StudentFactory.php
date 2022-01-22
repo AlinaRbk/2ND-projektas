@@ -13,8 +13,12 @@ class StudentFactory extends Factory
      */
     public function definition()
     {
+     
         return [
-            //
+            'name' => $this->faker->firstName(),  
+            'surname' => $this->faker->lastName(),
+            'group_id' => $this->faker->numberBetween(1,10),
+            'image_url' => $this->faker->imageUrl()
         ];
     }
 }

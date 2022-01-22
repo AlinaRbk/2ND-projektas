@@ -15,9 +15,9 @@ class SchoolFactory extends Factory
     {
         return [
             'name' => $this->faker->firstName(),
-            'description' => $this->faker->description(),
-            'place' => $this->faker->place(),
-            'phone' => $this->faker->number()
+            'description' => $this->faker->paragraph(2),
+            'place' => $this->faker->address(), 
+            'phone' => $this->faker->phoneNumber()
 
         ];
     }

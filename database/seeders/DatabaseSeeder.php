@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\School;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +14,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        Shool::factory()->count(20)->create();
+        AttendanceGroup::factory()->count(20)->create();
+        Student::factory()->count(20)->create();
+        
+       
     }
 }

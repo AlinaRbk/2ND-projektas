@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
+use App\Models\Student;
+
+
 class SchoolSeeder extends Seeder
 {
     /**
@@ -13,6 +16,6 @@ class SchoolSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Shool::factory()->count(20)->create();
     }
 }

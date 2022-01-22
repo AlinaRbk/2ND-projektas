@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\student;
 use App\Http\Requests\StorestudentRequest;
 use App\Http\Requests\UpdatestudentRequest;
+use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
@@ -15,7 +16,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $students = student::all();
+        return view('students.index', ['students' => $students]);
     }
 
     /**
@@ -25,7 +27,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        $select_values = Student::all();
+        return view('students.create', ['select_values' => $select_values]);
     }
 
     /**
@@ -34,9 +37,18 @@ class StudentController extends Controller
      * @param  \App\Http\Requests\StorestudentRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorestudentRequest $request)
+    public function store(Request $request)
     {
-        //
+        $student = new Student;
+
+        $student->name = $request->student_name;
+        $student->surname = $request->student_surname;
+        $student->group_id = $request->student_group_id;
+        $student->image_url = $request->student_image_url;
+
+        $student->save();
+
+        return redirect()->route('student.index');
     }
 
     /**
@@ -47,7 +59,8 @@ class StudentController extends Controller
      */
     public function show(student $student)
     {
-        //
+        return view('students.show', ['student'=> $student]);
+
     }
 
     /**
@@ -58,8 +71,9 @@ class StudentController extends Controller
      */
     public function edit(student $student)
     {
-        //
-    }
+        $select_values = Student::all();
+        return view('students.edit', ['student' => $student, 'select_values' => $select_values]);    }
+    
 
     /**
      * Update the specified resource in storage.
@@ -68,9 +82,17 @@ class StudentController extends Controller
      * @param  \App\Models\student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatestudentRequest $request, student $student)
+    public function update(Request $request, student $student)
     {
-        //
+        $student->name = $request->student_name;
+        $student->surname = $request->student_surname;
+        $student->group_id = $request->student_group_id;
+        $student->image_url = $request->student_image_url;
+    
+        $student->save();
+
+        return redirect()->route('student.index');
+
     }
 
     /**
@@ -81,6 +103,7 @@ class StudentController extends Controller
      */
     public function destroy(student $student)
     {
-        //
+        $student->delete();
+        return redirect()->route('student.index');
     }
 }
