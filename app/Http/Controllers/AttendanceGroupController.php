@@ -18,7 +18,7 @@ class AttendanceGroupController extends Controller
     public function index()
     {
         $AttendanceGroups = AttendanceGroup::all();
-        return view('attendancegroups.index', ['attendancegroups' => $attendancegroups]);
+        return view('attendanceGroups.index', ['attendanceGroups' => $attendanceGroups]);
     }
 
     /**
@@ -29,7 +29,7 @@ class AttendanceGroupController extends Controller
     public function create()
     {
         $select_values = AttendanceGroup::all();
-        return view('attendancegroup.create', ['select_values' => $select_values]);
+        return view('attendanceGroup.create', ['select_values' => $select_values]);
     }
 
     /**
@@ -38,16 +38,16 @@ class AttendanceGroupController extends Controller
      * @param  \App\Http\Requests\StoreAttendanceGroupRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request)\
     {
         $attendancegroup= new AttendanceGroup;
 
-        $attendancegroup->name = $request->attendancegroup_name;
-        $attendancegroup->description = $request->attendancegroup_description;
-        $attendancegroup->difficulty = $request->attendancegroup_difficulty;
-        $attendancegroup->school_id = $request->attendancegroup_school_id;
+        $attendanceGroup->name = $request->attendanceGroup_name;
+        $attendanceGroup->description = $request->attendanceGroup_description;
+        $attendanceGroup->difficulty = $request->attendanceGroup_difficulty;
+        $attendanceGroup->school_id = $request->attendanceGroup_school_id;
 
-        $attendancegroup->save();
+        $attendanceGroup->save();
         return redirect()->route('attendancegroup.index');
     }
 
@@ -59,7 +59,7 @@ class AttendanceGroupController extends Controller
      */
     public function show(AttendanceGroup $attendanceGroup)
     {
-        return view('attendancegroups.show', ['attendancegroup'=> $attendancegroup]);
+        return view('attendanceGroups.show', ['attendanceGroup'=> $attendanceGroup]);
 
     }
 
@@ -72,7 +72,7 @@ class AttendanceGroupController extends Controller
     public function edit(AttendanceGroup $attendanceGroup)
     {
         $select_values = AttendanceGroup::all();
-        return view('attendancegroups.edit', ['attendancegroup' => $attendancegroups, 'select_values' => $select_values]);    }
+        return view('attendanceGroups.edit', ['attendanceGroup' => $attendancegroups, 'select_values' => $select_values]);    }
 
     
 

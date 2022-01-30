@@ -10,22 +10,24 @@
 </head>
 <body>
     <div class="container">
-    <h1>Students Index</h1>
+    <h1>Student Index</h1>
 
 
 @if (count($students) == 0)
     <p>There is no students</p>
 @endif
 
-<a class="btn btn-primary" href="{{route('student.create')}}">Create new client</a>
+{{-- create forma - mums reikia nuorodos ar mygtuko --}}
+<a class="btn btn-primary" href="{{route('student.create')}}">Create new students</a>
 <table class="table table-striped">
 <tr>
     <th>Id</th>
     <th>Name</th>
     <th>Surname</th>
-    <th>Username</th>
-    <th>Group ID</th>
-    <th>Image Url</th>
+    <th>Group</th>
+    <th> Group level(difficulty)</th>
+    <th>Image</th>
+    <th>Actions</th>
 </tr>
 
 
@@ -34,11 +36,12 @@
         <td>{{$student->id}}</td>
         <td>{{$student->name}}</td>
         <td>{{$student->surname}}</td>
-        <td>{{$student->group_id}}</td>
-        <td>{{$student->image_url}}</td>
+        <td>{{$student->studentAttendanceGroup->name}}</td>
+        <td>{{$student->studentAttendanceGroup->difficulty}}</td>
+        <td><img src='{{$student->image_url}}' width="100" height="100"/></td>
         <td>
             <a class="btn btn-primary" href="{{route('student.edit', [$student])}}">Edit</a>
-            <a class="btn btn-secondary" href="{{route('student.show', [$student])}}">Show</a>
+             <a class="btn btn-secondary" href="{{route('student.show', [$student])}}">Show</a>
 
             <form method="post" action='{{route('student.destroy', [$student])}}''>
                 @csrf

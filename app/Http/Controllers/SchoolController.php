@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\School;
+use App\Models\school;
 
 use App\Http\Requests\StoreSchoolRequest;
 use App\Http\Requests\UpdateSchoolRequest;
@@ -39,7 +39,7 @@ class SchoolController extends Controller
      */
     public function store(Request $request)
     {
-        $school = new school;
+        $school = new School;
 
         $school->name = $request->school_name;
         $school->description = $request->school_description;

@@ -37,3 +37,17 @@ Route::prefix('students')->group(function() {
     Route::post('destroy/{student}', 'App\Http\Controllers\StudentController@destroy')->name('student.destroy');
     Route::get('show/{student}', 'App\Http\Controllers\StudentController@show')->name('student.show');
 });
+
+Route::prefix('attendanceGroups')->group(function() {
+
+    Route::get('', 'App\Http\Controllers\AttendanceGroupController@index')->name('attendancegroup.index');
+    Route::get('create', 'App\Http\Controllers\AttendanceGroupController@create')->name('attendancegroup.create');
+    Route::post('store', 'App\Http\Controllers\AttendanceGroupController@store')->name('attendancegroup.store');
+    Route::get('edit/{attendanceGroup}', 'App\Http\Controllers\AttendanceGroupController@edit')->name('attendancegroup.edit');
+    Route::post('update/{attendanceGroup}', 'App\Http\Controllers\AttendanceGroupController@update')->name('attendancegroup.update');
+    Route::post('destroy/{attendanceGroup}', 'App\Http\Controllers\AttendancegroupController@destroy')->name('attendancegroup.destroy');
+    Route::get('show/{attendanceGroup}', 'App\Http\Controllers\AttendancegroupController@show')->name('attendancegroup.show');
+});
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

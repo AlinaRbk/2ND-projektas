@@ -17,8 +17,8 @@ class StudentFactory extends Factory
         return [
             'name' => $this->faker->firstName(),  
             'surname' => $this->faker->lastName(),
-            'group_id' => $this->faker->numberBetween(1,10),
-            'image_url' => $this->faker->imageUrl()
+            'group_id' => $this->faker->numberBetween(1,10),//turėsiu sukurti 10 grupiu 
+        'image_url' => $this->faker->imageUrl(),
         ];
     }
 }

@@ -16,7 +16,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = student::all();
+        $students = Student::all();
         return view('students.index', ['students' => $students]);
     }
 
@@ -27,7 +27,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        $select_values = Student::all();
+        $select_values = AttendanceGroup::all();
         return view('students.create', ['select_values' => $select_values]);
     }
 
@@ -59,6 +59,7 @@ class StudentController extends Controller
      */
     public function show(student $student)
     {
+        $student_group = $student->studentAttendanceGroup->name;
         return view('students.show', ['student'=> $student]);
 
     }
@@ -71,7 +72,7 @@ class StudentController extends Controller
      */
     public function edit(student $student)
     {
-        $select_values = Student::all();
+       $select_values = AttendanceGroup::all();
         return view('students.edit', ['student' => $student, 'select_values' => $select_values]);    }
     
 

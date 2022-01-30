@@ -14,7 +14,7 @@
             <p>Id : {{$student->id}}</p>
         <p>Name : {{$student->name}}</p>
         <p>Surname : {{$student->surname}}</p>
-        <p>Group Id : {{$student->group_id}}</p>
+        <p>Group Id : {{student_group}} </p>
         <p>Image Url : {{$student->image_url}}</p>
 
         <form method="post" action='{{route('student.destroy', [$student])}}''>

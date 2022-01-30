@@ -14,9 +14,9 @@
 
         <form method='POST' action='{{route('school.store')}}' >
 
-            <input class="form-control" type='text' name="school_name" value="" placeholder="school Name"/>
+            <input class="form-control" type='text' name="school_name" value="" placeholder="School Name"/>
             <input  class="form-control" type='text' name="school_description" value="{{$school->description}}"  placeholder="school Description"/>
-            <input  class="form-control" type='text' name="school_place"  value="" placeholder="school place"/>
+            <input  class="form-control" type='text' name="school_place"  value="" placeholder="School place"/>
             <input  class="form-control" type='number' name="phone"  value="" placeholder="Phone Number"/>
 
             @csrf

@@ -18,9 +18,12 @@ class CreateStudentsTable extends Migration
             $table->string('name');
             $table->string('surname');
             $table->unsignedBigInteger('group_id');
-            $table->string('image_url',300);
+            
+            //group_id bando sudaryti rysi su lenteles attendace_groups stulpeliu id
+            $table->foreign('group_id')->references('id')->on('attendance_groups');
 
 
+            $table->string('image_url');
             $table->timestamps();
         });
     }

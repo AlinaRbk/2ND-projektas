@@ -15,10 +15,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        School::factory()->count(20)->create();
-        AttendanceGroup::factory()->count(20)->create();
-        Student::factory()->count(20)->create();
-        
-       
+        // \App\Models\User::factory(10)->create();
+
+        $this->call([
+            SchoolSeeder::class,
+            AttendanceGroupSeeder::class,
+            StudentSeeder::class,
+        ]);
     }
 }

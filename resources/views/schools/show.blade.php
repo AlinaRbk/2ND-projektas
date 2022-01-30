@@ -14,9 +14,9 @@
         <h2> {{$school->name}}  </h2>
             <p>Id : {{$school->id}}</p>
         <p>Name : {{$school->name}}</p>
-        <p>Description : {{$company->description}}</p>
-        <p>Place : {{$company->place}}</p>
-        <p>Phone : {{$company->phone}}</p>
+        <p>Description : {{$school->description}}</p>
+        <p>Place : {{$school->place}}</p>
+        <p>Phone : {{$school->phone}}</p>
 
 
         <form method="post" action='{{route('school.destroy', [$school])}}''>
